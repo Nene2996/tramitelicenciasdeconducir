@@ -1,16 +1,14 @@
 <?php
 
+use App\Http\Livewire\Administered\ChangeStatusLicence;
+use App\Http\Livewire\Administered\CreateAdministered;
+use App\Http\Livewire\Administered\SendLicence;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
 Route::get('/', function () {
@@ -25,4 +23,10 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/administrados/entregar-licencia/{administered}', SendLicence::class)->name('administered.sendLicence');
+    Route::get('/administrados/actualizar-estado-licencia/{administered}', ChangeStatusLicence::class)->name('administered.changeStatusLicence');
+    Route::get('/administrados/agregar-administrado', CreateAdministered::class)->name('administered.create');
 });
+
+
