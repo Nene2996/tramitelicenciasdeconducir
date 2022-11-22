@@ -87,5 +87,4 @@ class IndexAdministered extends Component
     {
         $this->resetPage();
     }
-    
 }
